@@ -1,0 +1,93 @@
+@import "./../../style.scss";
+
+.navbar {
+  @include themify($themes) {
+    height: 70px;
+    background-color: themed(bg);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid themed(border);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+
+    @include mobile {
+      padding: 0;
+    }
+
+    .nav-icon {
+      color: themed(textColor);
+      cursor: pointer;
+    }
+
+    .navbar-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      h3 {
+        font-weight: 800;
+        color: themed(logo);
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid #9999;
+        border-radius: 3px;
+        padding: 5px;
+
+        input {
+          width: 500px;
+          background: transparent;
+          color: themed(textColor);
+          border: none;
+          border-color: themed(border);
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            width: 200px;
+          }
+        }
+
+        input:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .navbar-right {
+      @include mobile {
+        display: none;
+      }
+
+      @include tablet {
+        display: none;
+      }
+
+      display: flex;
+      gap: 20px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: themed(textColor);
+        font-weight: 700;
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
